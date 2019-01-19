@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Star Guardian Battle!</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row row-1">
+            <div class="col text-center">
+                <header>
+                    <h1>Star Guardian Battle!</h1>
+                </header>
+            </div>
+        </div>
+
+        <div class="row row-2" id="row-2">
+            <h2>Select your character:</h2>
+        </div>
+
+<!-- Main Character Selection -->
+        <div class="row row-3">
+            <div class="col-3 text-center">
+
+                <div class="card border border-dark" id="luxImg" style="width: 200px; height: 300px;">
+                    <img src="assets/images/Lux.jpg" class="card-img-top" alt="Lux">
+                    <div class="card-body">
+                        <p id="luxStats">
+                            <!-- Lux stats go here -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-3 text-center">
+                <div class="card border border-dark" id="jannaImg" style="width: 200px; height: 300px;">
+                    <img src="assets/images/Janna.png" class="card-img-top" alt="Janna">
+                    <div class="card-body">
+                        <p id="jannaStats">
+                            <!-- Janna stats go here -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-3 text-center">
+
+                <div class="card border border-dark" id="luluImg" style="width: 200px; height: 300px;">
+                    <img src="assets/images/Lulu.jpg" class="card-img-top" alt="Lulu">
+                    <div class="card-body">
+                        <p id="luluStats">
+                            <!-- Lulu stats go here -->
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="col-3 text-center">
+                <div class="card border border-dark" id="jinxImg" style="width: 200px; height: 300px;">
+                    <img src="assets/images/Jinx.jpg" class="card-img-top" alt="Jinx">
+                    <div class="card-body">
+                        <p id="jinxStats">
+                        
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+<!-- Battle Section -->
+
+        <div class="row row-4">
+            <div class="col-5 text-center">
+                <h3>Your Character</h3>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-5 text-center">
+                <h3>Your Opponent</h3>
+            </div>
+        </div>
+
+        <div class="row row-4">
+            <div class="col-5 charVS text-center">
+                <!-- Choosen Character image and stats -->
+            </div>
+            <div class="col-2 VS text-center">
+                <img src="assets/images/VS.png" alt="Versus">
+            </div>
+            <div class="col-5 enemyVS text-center">
+                <!-- Choosen Enemy image and stats -->
+            </div>
+        </div>
+
+<!-- Actions and Dialog Section -->
+
+        <div class="row row-6">
+            <div class="col-1">
+                <h2>Actions:</h2>
+            </div>
+            <div class="col-3">
+                <button type="attackBtn" class="btn btn-outline-danger ml-5">Attack</button>
+                <button type="defendBtn" class="btn btn-outline-info ml-3">Defend</button>
+            </div>
+            <div class="col-1">
+                <h2>Event:</h2>
+            </div>
+            <div class="col-7">
+                    <!-- "Your Character" attacked "Enemy Character" for "#" amount of damage.
+                    "Enemy Character" attacked "Your Character" back for "#" amount of damage. -->
+            </div>
+        </div>
+
+<!-- Select Opponents Section -->
+
+        <div class="row row-7">
+            <h2>Choose your Opponent:</h2>
+        </div>
+
+        <div class="row row-8" id="row-8">
+            <!-- Opponents are listed here. -->
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="assets/javascript/game.js"></script>
+
+</body>
+
+</html>
