@@ -1,6 +1,5 @@
 .charVS {
  left: 125px;
- padding-bottom: 20px;
 }
 
 .VS {
@@ -9,12 +8,17 @@
 
 .enemyVS {
     left: 123px;
-    padding-bottom: 20px;
 }
 
 img {
     padding: 2px;
 }
+
+.card {
+    margin: 10px;
+
+}
+
 
 p {
     margin: 0;
@@ -22,3 +26,61 @@ p {
     line-height: 20px;
     font-size: 18px;
 }
+
+body {
+    font-family: 'Carter One', cursive;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    background: url(../images/colorful-galaxy-digital-art.jpg);
+    background-repeat: no-repeat;
+ 
+    background-size: 100%
+}
+
+.row-6 {
+    background-color: white;
+}
+
+.row-5 {
+    background-color: white;
+    border: 2px solid slategray
+}
+
+.row-6 {
+    background-color: white;
+    border-bottom: 2px solid slategray;
+    border-left: 2px solid slategray;
+    border-right: 2px solid slategray;
+}
+
+h3 {
+    margin-top: 7px;
+    color: black;
+    text-shadow: none;
+}
+
+p {
+    color: black;
+    text-shadow: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px
+}
+
+button {
+    margin: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Carter One', cursive;
+    font-size: 50px;
+    color: white
+}
+
+header {
+    background-color: rgba(255, 255, 255, 0.432);
+    border-bottom: 2px solid slategray;
+    margin-bottom: 10px;
+}
+

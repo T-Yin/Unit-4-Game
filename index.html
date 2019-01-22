@@ -10,18 +10,23 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Carter+One" rel="stylesheet">
+
+
 
 </head>
 
 <body>
 
+    <header>
+        <h1>Star Guardian Battle!</h1>
+    </header>
+
     <div class="container">
 
         <div class="row row-1">
             <div class="col text-center">
-                <header>
-                    <h1>Star Guardian Battle!</h1>
-                </header>
+
             </div>
         </div>
 
@@ -29,12 +34,12 @@
             <h2>Select your character:</h2>
         </div>
 
-<!-- Main Character Selection -->
+        <!-- Main Character Selection -->
         <div class="row row-3">
             <div class="col-3 text-center">
 
-                
-                <div class="card border border-dark" id="lux" style="width: 200px; height: 300px;">
+
+                <div class="card" id="lux" style="width: 200px; height: 300px;">
                     <img src="assets/images/Lux.jpg" class="card-img-top" alt="Lux">
                     <div class="card-body">
                         <p id="luxStats">
@@ -45,7 +50,7 @@
             </div>
 
             <div class="col-3 text-center">
-                <div class="card border border-dark" id="janna" style="width: 200px; height: 300px;">
+                <div class="card" id="janna" style="width: 200px; height: 300px;">
                     <img src="assets/images/Janna.png" class="card-img-top" alt="Janna">
                     <div class="card-body">
                         <p id="jannaStats">
@@ -57,7 +62,7 @@
 
             <div class="col-3 text-center">
 
-                <div class="card border border-dark" id="lulu" style="width: 200px; height: 300px;">
+                <div class="card" id="lulu" style="width: 200px; height: 300px;">
                     <img src="assets/images/Lulu.jpg" class="card-img-top" alt="Lulu">
                     <div class="card-body">
                         <p id="luluStats">
@@ -70,11 +75,11 @@
 
 
             <div class="col-3 text-center">
-                <div class="card border border-dark" id="jinx" style="width: 200px; height: 300px;">
+                <div class="card" id="jinx" style="width: 200px; height: 300px;">
                     <img src="assets/images/Jinx.jpg" class="card-img-top" alt="Jinx">
                     <div class="card-body">
                         <p id="jinxStats">
-                        
+
                         </p>
                     </div>
                 </div>
@@ -82,19 +87,19 @@
 
         </div>
 
-<!-- Battle Section -->
+        <!-- Battle Section -->
 
         <div class="row row-4">
             <div class="col-5 text-center">
-                <h3>Your Character</h3>
+                <h2>Your Character</h2>
             </div>
             <div class="col-2"></div>
             <div class="col-5 text-center">
-                <h3>Your Opponent</h3>
+                <h2>Your Opponent</h2>
             </div>
         </div>
 
-        <div class="row row-4">
+        <div class="row row-5">
             <div class="col-5 charVS text-center">
                 <!-- Choosen Character image and stats -->
             </div>
@@ -106,7 +111,7 @@
             </div>
         </div>
 
-<!-- Actions and Dialog Section -->
+        <!-- Actions and Dialog Section -->
 
         <div class="row row-6">
             <div class="col-1">
@@ -114,18 +119,18 @@
             </div>
             <div class="col-3">
                 <button id="attackBtn" class="btn btn-outline-danger ml-5">Attack</button>
-                <button id="defendBtn" class="btn btn-outline-info ml-3">Defend</button>
+                <!-- <button id="defendBtn" class="btn btn-outline-info ml-3">Defend</button> -->
             </div>
             <div class="col-3 text-right">
                 <h3>Event:</h3>
             </div>
             <div class="col-4 text-left">
-                       <p id="characterEvent"></p>
-                       <p id="opponentEvent"></p>
+                <p id="characterEvent"></p>
+                <p id="opponentEvent"></p>
             </div>
         </div>
 
-<!-- Select Opponents Section -->
+        <!-- Select Opponents Section -->
 
         <div class="row row-7">
             <h2>Choose your Opponent:</h2>

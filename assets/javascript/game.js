@@ -4,19 +4,23 @@ $(document).ready(function () {
     var lux = {
         name: "Lux",
         id: "#lux",
-        hp: 30,
+        hp: 140,
         baseAttack: 10,
-        counterAttack: 3,
+        counterAttack: 7,
         isAlive: true,
         isSelectedCharacter: false,
         isSelectedOpponent: false,
+        // attack: function(opp){
+        //     this.hp -= opp.attack;
+        // }
     };
+    // lux.attack(janna);
 
     var janna = {
         name: "Janna",
         id: "#janna",
-        hp: 160,
-        baseAttack: 7,
+        hp: 150,
+        baseAttack: 9,
         counterAttack: 6,
         isAlive: true,
         isSelectedCharacter: false,
@@ -27,7 +31,7 @@ $(document).ready(function () {
         name: "Lulu",
         id: "#lulu",
         hp: 150,
-        baseAttack: 8,
+        baseAttack: 9,
         counterAttack: 6,
         isAlive: true,
         isSelectedCharacter: false,
@@ -38,8 +42,8 @@ $(document).ready(function () {
         name: "Jinx",
         id: "#jinx",
         hp: 130,
-        baseAttack: 12,
-        counterAttack: 8,
+        baseAttack: 11,
+        counterAttack: 7,
         isAlive: true,
         isSelectedCharacter: false,
         isSelectedOpponent: false,
@@ -74,25 +78,35 @@ $(document).ready(function () {
 
     function updateEvent() {
         if (characterSelected && opponentSelected) {
-        $characterAttack.textContent = "You attack your opponent for " + characterAttackDmg + " damage.";
-        $opponentAttack.textContent = "Your opponent attacks back for " + opponentAttackDmg + " damage."; 
+            $characterAttack.textContent = "You attack your opponent for " + characterAttackDmg + " damage.";
+            $opponentAttack.textContent = "Your opponent attacks back for " + opponentAttackDmg + " damage.";
         }
     }
 
     function nextOpponent() {
         $characterAttack.textContent = "You've defeated your opponent!";
-        $opponentAttack.textContent = " Please select your next opponent below."; 
+        $opponentAttack.textContent = " Please select your next opponent below.";
+    }
+
+    function youLose() {
+        $characterAttack.textContent = "You've been defeated by your opponent.";
+        $opponentAttack.textContent = " Please refresh the page to play again.";
+    }
+
+    function youWin() {
+        $characterAttack.textContent = "Congrats, you've won!";
+        $opponentAttack.textContent = " Please refresh the page to play again.";
     }
 
     function generateCounter() {
         if (lux.isSelectedOpponent) {
-            return Math.floor(Math.random() * (20 - 10) * (lux.counterAttack * .3) + 1);
+            return Math.floor(Math.random() * (25 - 10) * (lux.counterAttack * .3) + 1);
         } else if (janna.isSelectedOpponent) {
             return Math.floor(Math.random() * (20 - 10) * (janna.counterAttack * .3) + 1);
         } else if (lulu.isSelectedOpponent) {
             return Math.floor(Math.random() * (20 - 10) * (lulu.counterAttack * .3) + 1);
         } else if (jinx.isSelectedOpponent) {
-            return Math.floor(Math.random() * (20 - 10) * (jinx.counterAttack * .3) + 1);
+            return Math.floor(Math.random() * (25 - 10) * (jinx.counterAttack * .3) + 1);
         }
     }
 
@@ -129,7 +143,7 @@ $(document).ready(function () {
         } else if (!opponentSelected) {
             $(lux.id).appendTo(".enemyVS");
             opponentSelected = true;
-            lux.isOpponentSelected = true;
+            lux.isSelectedOpponent = true;
         }
     });
 
@@ -201,7 +215,28 @@ $(document).ready(function () {
         characterHP = characterHP - opponentAttackDmg;
     }
 
+    // IGNORE: Test for future reference.
+    // function battleHPUpdate(x) {
+    //     if (x.isSelectedCharacter) {
+    //        characterHP = x.hp;
+    //     }
+    //     if (x.isSelectedOpponent) {
+    //         opponentHP = x.hp;
+    //     }
+    // }
+
     $("#attackBtn").on("click", function () {
+
+
+        // if (lux.isSelectedCharacter) {
+        //     lux.baseAttack++;
+        //     characterHP = lux.hp;
+        //     battleHPUpdate(lux)
+
+        // }
+
+        
+        // ===Lux as Main===
 
         if (lux.isSelectedCharacter && janna.isSelectedOpponent) {
             lux.baseAttack++;
@@ -213,13 +248,14 @@ $(document).ready(function () {
             updateEvent();
             updateHP();
 
-            if (opponentHP < 0) {
+            if (opponentHP < 0 || opponentHP === 0) {
                 opponentSelected = false,
-                janna.isSelectedOpponent = false,
-                numberOfOpponents--;
+                    janna.isSelectedOpponent = false,
+                    numberOfOpponents--;
                 $(janna.id).hide();
                 nextOpponent();
             }
+
         } else if (lux.isSelectedCharacter && jinx.isSelectedOpponent) {
             lux.baseAttack++;
             characterHP = lux.hp;
@@ -230,10 +266,10 @@ $(document).ready(function () {
             updateEvent();
             updateHP();
 
-            if (opponentHP < 0) {
+            if (opponentHP < 0 || opponentHP === 0) {
                 opponentSelected = false,
-                jinx.isSelectedOpponent = false,
-                numberOfOpponents--;
+                    jinx.isSelectedOpponent = false,
+                    numberOfOpponents--;
                 $(jinx.id).hide();
                 nextOpponent();
             }
@@ -248,23 +284,205 @@ $(document).ready(function () {
             updateEvent();
             updateHP();
 
-            if (opponentHP < 0) {
+            if (opponentHP < 0 || opponentHP === 0) {
                 opponentSelected = false,
-                lulu.isSelectedOpponent = false,
-                numberOfOpponents--;
+                    lulu.isSelectedOpponent = false,
+                    numberOfOpponents--;
                 $(lulu.id).hide();
                 nextOpponent();
             }
+
+        }
+
+        // ===Janna as Main===
+
+        if (janna.isSelectedCharacter && lux.isSelectedOpponent) {
+            janna.baseAttack++;
+            characterHP = janna.hp;
+            opponentHP = lux.hp;
+            battle();
+            janna.hp = characterHP;
+            lux.hp = opponentHP;
+            updateEvent();
+            updateHP();
+
+            if (opponentHP < 0 || opponentHP === 0) {
+                opponentSelected = false,
+                    lux.isSelectedOpponent = false,
+                    numberOfOpponents--;
+                $(lux.id).hide();
+                nextOpponent();
+            }
+
+        } else if (janna.isSelectedCharacter && jinx.isSelectedOpponent) {
+            janna.baseAttack++;
+            characterHP = janna.hp;
+            opponentHP = jinx.hp;
+            battle();
+            janna.hp = characterHP;
+            jinx.hp = opponentHP;
+            updateEvent();
+            updateHP();
+
+            if (opponentHP < 0 || opponentHP === 0) {
+                opponentSelected = false,
+                    jinx.isSelectedOpponent = false,
+                    numberOfOpponents--;
+                $(jinx.id).hide();
+                nextOpponent();
+            }
+        } else if (janna.isSelectedCharacter && lulu.isSelectedOpponent) {
+
+            janna.baseAttack++;
+            characterHP = janna.hp;
+            opponentHP = lulu.hp;
+            battle();
+            janna.hp = characterHP;
+            lulu.hp = opponentHP;
+            updateEvent();
+            updateHP();
+
+            if (opponentHP < 0 || opponentHP === 0) {
+                opponentSelected = false,
+                    lulu.isSelectedOpponent = false,
+                    numberOfOpponents--;
+                $(lulu.id).hide();
+                nextOpponent();
+            }
+
+        }
+
+        // ===Lulu as Main===
+
+        if (lulu.isSelectedCharacter && lux.isSelectedOpponent) {
+            lulu.baseAttack++;
+            characterHP = lulu.hp;
+            opponentHP = lux.hp;
+            battle();
+            lulu.hp = characterHP;
+            lux.hp = opponentHP;
+            updateEvent();
+            updateHP();
+
+            if (opponentHP < 0 || opponentHP === 0) {
+                opponentSelected = false,
+                    lux.isSelectedOpponent = false,
+                    numberOfOpponents--;
+                $(lux.id).hide();
+                nextOpponent();
+            }
+
+        } else if (lulu.isSelectedCharacter && jinx.isSelectedOpponent) {
+            lulu.baseAttack++;
+            characterHP = lulu.hp;
+            opponentHP = jinx.hp;
+            battle();
+            lulu.hp = characterHP;
+            jinx.hp = opponentHP;
+            updateEvent();
+            updateHP();
+
+            if (opponentHP < 0 || opponentHP === 0) {
+                opponentSelected = false,
+                    jinx.isSelectedOpponent = false,
+                    numberOfOpponents--;
+                $(jinx.id).hide();
+                nextOpponent();
+            }
+        } else if (lulu.isSelectedCharacter && janna.isSelectedOpponent) {
+
+            lulu.baseAttack++;
+            characterHP = lulu.hp;
+            opponentHP = janna.hp;
+            battle();
+            lulu.hp = characterHP;
+            janna.hp = opponentHP;
+            updateEvent();
+            updateHP();
+
+            if (opponentHP < 0 || opponentHP === 0) {
+                opponentSelected = false,
+                    janna.isSelectedOpponent = false,
+                    numberOfOpponents--;
+                $(janna.id).hide();
+                nextOpponent();
+            }
+
+        }
+
+        // ===Jinx as Main===
+
+        if (jinx.isSelectedCharacter && lux.isSelectedOpponent) {
+            jinx.baseAttack++;
+            characterHP = jinx.hp;
+            opponentHP = lux.hp;
+            battle();
+            jinx.hp = characterHP;
+            lux.hp = opponentHP;
+            updateEvent();
+            updateHP();
+
+            if (opponentHP < 0 || opponentHP === 0) {
+                opponentSelected = false,
+                    lux.isSelectedOpponent = false,
+                    numberOfOpponents--;
+                $(lux.id).hide();
+                nextOpponent();
+            }
+
+        } else if (jinx.isSelectedCharacter && lulu.isSelectedOpponent) {
+            jinx.baseAttack++;
+            characterHP = jinx.hp;
+            opponentHP = lulu.hp;
+            battle();
+            jinx.hp = characterHP;
+            lulu.hp = opponentHP;
+            updateEvent();
+            updateHP();
+
+            if (opponentHP < 0 || opponentHP === 0) {
+                opponentSelected = false,
+                    lulu.isSelectedOpponent = false,
+                    numberOfOpponents--;
+                $(lulu.id).hide();
+                nextOpponent();
+            }
+        } else if (jinx.isSelectedCharacter && janna.isSelectedOpponent) {
+
+            jinx.baseAttack++;
+            characterHP = jinx.hp;
+            opponentHP = janna.hp;
+            battle();
+            jinx.hp = characterHP;
+            janna.hp = opponentHP;
+            updateEvent();
+            updateHP();
+
+            if (opponentHP < 0 || opponentHP === 0) {
+                opponentSelected = false,
+                    janna.isSelectedOpponent = false,
+                    numberOfOpponents--;
+                $(janna.id).hide();
+                nextOpponent();
+            }
+
+        }
+
+        if (characterHP < 0) {
+            updateHP();
+            youLose();
+            alert("You lose!")
+        }
+
+
+        if (numberOfOpponents === 0 && characterHP > 0) {
+            updateHP();
+            youWin();
+            alert("You win!");
         }
 
     });
-    
-    // if () {
-    //     alert("You lose!");
-    // } 
 
-    // if (numberOfOpponents === 0) {
-    //     alert("You win!");
-    // }
+
 
 });
