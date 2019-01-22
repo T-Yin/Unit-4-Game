@@ -33,7 +33,8 @@
         <div class="row row-3">
             <div class="col-3 text-center">
 
-                <div class="card border border-dark" id="luxImg" style="width: 200px; height: 300px;">
+                
+                <div class="card border border-dark" id="lux" style="width: 200px; height: 300px;">
                     <img src="assets/images/Lux.jpg" class="card-img-top" alt="Lux">
                     <div class="card-body">
                         <p id="luxStats">
@@ -44,7 +45,7 @@
             </div>
 
             <div class="col-3 text-center">
-                <div class="card border border-dark" id="jannaImg" style="width: 200px; height: 300px;">
+                <div class="card border border-dark" id="janna" style="width: 200px; height: 300px;">
                     <img src="assets/images/Janna.png" class="card-img-top" alt="Janna">
                     <div class="card-body">
                         <p id="jannaStats">
@@ -56,7 +57,7 @@
 
             <div class="col-3 text-center">
 
-                <div class="card border border-dark" id="luluImg" style="width: 200px; height: 300px;">
+                <div class="card border border-dark" id="lulu" style="width: 200px; height: 300px;">
                     <img src="assets/images/Lulu.jpg" class="card-img-top" alt="Lulu">
                     <div class="card-body">
                         <p id="luluStats">
@@ -69,7 +70,7 @@
 
 
             <div class="col-3 text-center">
-                <div class="card border border-dark" id="jinxImg" style="width: 200px; height: 300px;">
+                <div class="card border border-dark" id="jinx" style="width: 200px; height: 300px;">
                     <img src="assets/images/Jinx.jpg" class="card-img-top" alt="Jinx">
                     <div class="card-body">
                         <p id="jinxStats">
@@ -109,18 +110,18 @@
 
         <div class="row row-6">
             <div class="col-1">
-                <h2>Actions:</h2>
+                <h3>Actions:</h3>
             </div>
             <div class="col-3">
-                <button type="attackBtn" class="btn btn-outline-danger ml-5">Attack</button>
-                <button type="defendBtn" class="btn btn-outline-info ml-3">Defend</button>
+                <button id="attackBtn" class="btn btn-outline-danger ml-5">Attack</button>
+                <button id="defendBtn" class="btn btn-outline-info ml-3">Defend</button>
             </div>
-            <div class="col-1">
-                <h2>Event:</h2>
+            <div class="col-3 text-right">
+                <h3>Event:</h3>
             </div>
-            <div class="col-7">
-                    <!-- "Your Character" attacked "Enemy Character" for "#" amount of damage.
-                    "Enemy Character" attacked "Your Character" back for "#" amount of damage. -->
+            <div class="col-4 text-left">
+                       <p id="characterEvent"></p>
+                       <p id="opponentEvent"></p>
             </div>
         </div>
 
@@ -130,7 +131,7 @@
             <h2>Choose your Opponent:</h2>
         </div>
 
-        <div class="row row-8" id="row-8">
+        <div class="row row-8 text-center" id="row-8">
             <!-- Opponents are listed here. -->
         </div>
 

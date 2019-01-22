@@ -1,6 +1,6 @@
 .charVS {
  left: 125px;
- padding-bottom: 5px;
+ padding-bottom: 20px;
 }
 
 .VS {
@@ -9,9 +9,16 @@
 
 .enemyVS {
     left: 123px;
-    padding-bottom: 5px;
+    padding-bottom: 20px;
 }
 
 img {
     padding: 2px;
+}
+
+p {
+    margin: 0;
+    padding: 2px;
+    line-height: 20px;
+    font-size: 18px;
 }
