@@ -41,7 +41,7 @@ $(document).ready(function () {
     var jinx = {
         name: "Jinx",
         id: "#jinx",
-        hp: 130,
+        hp: 140,
         baseAttack: 11,
         counterAttack: 7,
         isAlive: true,
@@ -468,17 +468,19 @@ $(document).ready(function () {
 
         }
 
-        if (characterHP < 0) {
+        if (characterHP <= 0) {
             updateHP();
             youLose();
-            alert("You lose!")
+            setTimeout(function(){ 
+                alert("You Lose!"); }, 300);
         }
 
 
         if (numberOfOpponents === 0 && characterHP > 0) {
             updateHP();
             youWin();
-            alert("You win!");
+            setTimeout(function(){ 
+                 alert("You Win!"); }, 300);
         }
 
     });
