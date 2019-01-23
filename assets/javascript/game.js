@@ -94,7 +94,7 @@ $(document).ready(function () {
     }
 
     function youWin() {
-        $characterAttack.textContent = "Congrats, you've won!";
+        $characterAttack.textContent = "Congrats! You've defeated all your opponents!";
         $opponentAttack.textContent = " Please refresh the page to play again.";
     }
 
